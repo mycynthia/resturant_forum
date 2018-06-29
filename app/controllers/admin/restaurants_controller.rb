@@ -4,6 +4,7 @@ class Admin::RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
   end
+  # new
   def new
     @restaurant = Restaurant.new
   end
@@ -16,6 +17,10 @@ class Admin::RestaurantsController < ApplicationController
       flash.now[:alert] = "restaurant was failed to create"
       render :new
     end
+  end
+  # show
+  def show
+    @restaurant = Restaurant.find(params[:id])
   end
   
   private
