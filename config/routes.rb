@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # 後台入口管理者是採用namespace來區隔建立admin名稱可以任意更改
   namespace :admin do
     resources :restaurants
+    resources :categories
     root "restaurants#index"
   end
 
