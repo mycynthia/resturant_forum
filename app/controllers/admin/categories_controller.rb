@@ -3,4 +3,8 @@ class Admin::CategoriesController < ApplicationController
   before_action :authenticate_user!
   # 驗證該 User 身份是否為網站管理員
   before_action :authenticate_admin
+
+  def index
+    @categories = Category.all
+  end
 end
