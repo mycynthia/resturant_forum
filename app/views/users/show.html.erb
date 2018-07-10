@@ -20,6 +20,13 @@
         <div class="clearfix"></div>
       </div>
       <br>
+        <div class="col-md-9 col-sm-8">
+          <h2>30 已評論餐廳</h2>
+          <% @commented_restaurants.each do |restaurant| %>
+            <h5><%= restaurant.name %></h5>
+         <% end %>
+        </div>
+
     </div>
   </div>
 </div>
