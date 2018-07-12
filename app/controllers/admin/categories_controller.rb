@@ -38,7 +38,14 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    flash[:alert] = "category was successfully deleted"
+
+      # 若要刪除category時，分類下有餐聽跟無餐廳顯示的文字有所不同
+      if @category.destroy
+        flash[:notice] = " category was successfully deleted "
+      else
+        flash[:alert] = @category.errors.full_messages.to_sentence
+      end
+    
     redirect_to admin_categories_path
   end
 
