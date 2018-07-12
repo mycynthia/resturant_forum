@@ -11,15 +11,19 @@ Rails.application.routes.draw do
       get :feeds
     end
 
-    # 瀏覽個別餐廳的Dashboard
+    
     member do
+      # 瀏覽個別餐廳的Dashboard
       get :dashboard
+      # 收藏跟反收藏餐廳，因不需樣板故用post
+      post :favorite
+      post :unfavorite
     end
   end
 
 
-  resources :users, only: [:show, :edit, :update]
 
+  resources :users, only: [:show, :edit, :update]
   resources :categories ,only: :show
   root "restaurants#index"
 
