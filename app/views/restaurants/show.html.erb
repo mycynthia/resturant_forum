@@ -19,7 +19,9 @@
 
     <div class="col-md-8">
       <%= simple_format @restaurant.description %>
+      <%= link_to 'Dashboard', dashboard_restaurant_path(@restaurant),class: "btn btn-primary" %>
     </div>
+
 <!--     <div class="clearfix"></div> -->
     <hr>
   </div>
@@ -31,7 +33,7 @@
     <% @restaurant.comments.each do |comment| %>
       <div>
         <!-- 取使用者email的前端當使用者名稱 -->
-        <!-- <h4><%= comment.user.email.split("@").first %></h4> -->
+        <!-- <h4><%# comment.user.email.split("@").first %></h4> -->
         <!-- 取使用者自訂名稱 -->
         <h4><%= comment.user.name %></h4>
         <p><%= simple_format comment.content %></p>
