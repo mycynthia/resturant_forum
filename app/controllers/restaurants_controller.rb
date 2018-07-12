@@ -8,4 +8,9 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @comment = Comment.new
   end
+  def feeds
+    # 餐廳(評論)依新到舊排序，並取餐廳(評論)最新十筆資料
+    @recent_restaurants = Restaurant.order(created_at: :desc).limit(10)
+    @recent_comments = Comment.order(created_at: :desc).limit(10)
+  end
 end
