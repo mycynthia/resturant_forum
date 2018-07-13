@@ -20,7 +20,12 @@
     <div class="col-md-8">
       <%= simple_format @restaurant.description %>
       <%= link_to 'Dashboard', dashboard_restaurant_path(@restaurant),class: "btn btn-primary" %>
+      <!-- favorite partial -->
       <%= render partial: "shared/favorite", locals: {restaurant: @restaurant} %>
+      <!-- like and unlike -->
+      <%= link_to 'Like', like_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
+      <%= link_to 'Unlike', unlike_restaurant_path(@restaurant), method: :post, class: "btn btn-info" %>
+
     </div>
 
 <!--     <div class="clearfix"></div> -->
