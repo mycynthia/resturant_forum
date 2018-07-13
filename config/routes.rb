@@ -18,6 +18,9 @@ Rails.application.routes.draw do
       # 收藏跟反收藏餐廳，因不需樣板故用post
       post :favorite
       post :unfavorite
+      # 喜歡跟取消喜歡的餐廳
+      post :like
+      post :unlike
     end
   end
 
