@@ -24,4 +24,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant
 
+  # 使用者可以追蹤很多使用者followships
+  has_many :followships, dependent: :destroy #可略class_name: "Followship", primary_key: "id", foreign_key: "user_id"
+  has_many :followings, through: :followships #可略, source: :following
 end
