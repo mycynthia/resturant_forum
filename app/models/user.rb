@@ -11,6 +11,12 @@ class User < ApplicationRecord
   def admin?
     self.role == "admin"
   end
+
+  # 判斷user是否有人追蹤
+  def following?(user)
+    self.followings.include?(user)    
+  end
+
   # 使用者評論很多餐廳，餐廳被很多使用者評論
   # 如果User已經有了評論，就不允許刪除帳號(刪除時拋出Error)
   has_many :comments, dependent: :restrict_with_error
