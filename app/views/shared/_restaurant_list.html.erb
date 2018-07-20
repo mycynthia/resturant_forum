@@ -5,8 +5,7 @@
       <div class="restaurant-item">
         <% for img_id in 0..10 %>
           <% if image_path(restaurant.image).include?('/'+img_id.to_s+'.jpg') %>
-            <%= image_tag('/seed_img/'+img_id.to_s+'.jpg' class: "img-responsive center-block img-rounded") %>
-            
+            <%= image_tag('/seed_img/'+img_id.to_s+'.jpg', class:"img-responsive center-block img-rounded") %>
           <% end %>
         <% end %>
         <div class="caption">
