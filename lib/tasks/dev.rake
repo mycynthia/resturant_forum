@@ -10,7 +10,9 @@ namespace :dev do
         address: FFaker::Address.street_address,
         description: FFaker::Lorem.paragraph,
         category: Category.all.sample,
-        image: File.open(File.join(Rails.root, "/seed_img/#{rand(0...10)}.jpg"))
+        # heroku假資料
+        image: FFaker::Restaurant.first_name
+        #image: File.open(File.join(Rails.root, "/seed_img/#{rand(0...10)}.jpg"))
       )
     end
     puts "have created fake restaurants"
@@ -23,6 +25,7 @@ namespace :dev do
       User.create!(
         email: "#{user_name}@example.com",
         password: "123456"
+        name: "{user_name}"
         )
     end
     puts "have created fake users,now have #{User.count} users data"
