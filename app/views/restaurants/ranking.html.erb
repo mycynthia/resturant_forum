@@ -1,0 +1,11 @@
+<h1>Top 10 人氣餐廳 <small>(收藏數最高)</small></h1>
+
+<% @restaurants.each do |restaurant| %>
+  <%= image_tag restaurant.image %>
+  <h4><%= restaurant.name %></h4>
+  <span>收藏數：<%= restaurant.favorites_count %></span>
+  <!-- truncate截斷文字，限200字以內完整單字 -->
+  <p><%= truncate(restaurant.description, length: 200, separator: '') %></p>
+  <%= link_to 'Show', restaurant_path(restaurant), class: "btn btn-primary" %>
+  <%= render partial: 'shared/favorite', locals: {restaurant:restaurant} %>
+<% end %>
