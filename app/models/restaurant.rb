@@ -17,9 +17,10 @@ class Restaurant < ApplicationRecord
   def is_liked?(user)
     self.liked_users.include?(user)
   end
-  def count_favorites
-    self.favorites_count = self.favorites.size
-    self.save
-  end
+  # 使用counter_cache取代，到favorite.rb belong_to後方加上counter_cache
+  # def count_favorites
+  #   self.favorites_count = self.favorites.size
+  #   self.save
+  # end
 
 end
