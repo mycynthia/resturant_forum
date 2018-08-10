@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  # before_action需放在protect_form方法之下
+  before_action :authenticate_user!
   # 客製化devise gem 加username
   before_action :configure_permitted_parameters, if: :devise_controller?
   
